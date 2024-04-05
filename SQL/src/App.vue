@@ -1,21 +1,21 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { supabase } from './lib/supabaseClient'
 
-const countries = ref([])
+const Makerspace_test = ref([])
 
-async function getCountries() {
-  const { data } = await supabase.from('countries').select()
-  countries.value = data
+async function testhang() {
+  const { data } = await supabase.from('Makerspace_test').select()
+  Makerspace_test.value = data
 }
 
 onMounted(() => {
-  getCountries()
+  testhang()
 })
 </script>
 
 <template>
   <ul>
-    <li v-for="country in countries" :key="country.id">{{ country.name }}</li>
+    <li v-for="thing in Makerspace_test" :key="thing.id">{{ thing.Item }}</li>
   </ul>
 </template>
