@@ -5,10 +5,10 @@ import { supabase } from './lib/supabaseClient'
 const countries = ref([])
 
 async function getCountries() {
-  const { data } = await supabase.from('countries').select()
+  const { data } = await supabase.from('items').select()
   countries.value = data
 }
-
+// display items here
 onMounted(() => {
   getCountries()
 })
