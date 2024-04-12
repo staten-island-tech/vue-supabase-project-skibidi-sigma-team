@@ -2,20 +2,23 @@
 import { ref, onMounted } from 'vue'
 import { supabase } from './lib/supabaseClient'
 
-const countries = ref([])
+const items = ref([])
 
-async function getCountries() {
+async function getItems() {
   const { data } = await supabase.from('items').select()
-  countries.value = data
+  items.value = data
 }
 // display items here
 onMounted(() => {
-  getCountries()
+  getItems()
 })
 </script>
 
 <template>
-  <ul>
-    <li v-for="country in countries" :key="country.id">{{ country.name }}</li>
-  </ul>
+  <DataTable :value="items" tableStyle="min-width: 50rem">
+    <Column v-for="i in items" :key="i.id" :field="i.name" :header="i.name"></Column>
+  </DataTable>
+  <!--   <ul>
+    <li v-for="i in items" :key="i.id">{{ i.name }}</li>
+  </ul> -->
 </template>
