@@ -12,6 +12,7 @@ app.use(PrimeVue, {
     unstyled: true,
     pt: Lara
     // pt:preset
+    // download presets from primevue github
 });
 
 app.use(createPinia())
