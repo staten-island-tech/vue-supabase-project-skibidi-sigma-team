@@ -1,7 +1,7 @@
 <script setup>
-import Card from '@/components/PrimeCard.vue'
+import PrimeCard from '@/components/PrimeCard.vue'
 import { ref, onMounted } from 'vue'
-import { supabase } from '../lib/supabaseClient'
+import { supabase } from '../lib/supabaseClient.js'
 const items = ref([])
 async function getItems() {
   const { data } = await supabase.from('items').select()
@@ -16,6 +16,6 @@ console.log(items)
 
 <template>
   <main>
-    <Card v-for="item in items" :key="item.id" :item="item" />
+    <PrimeCard v-for="item in items" :key="item.id" :item="item" />
   </main>
 </template>
