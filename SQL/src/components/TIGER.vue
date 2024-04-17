@@ -6,10 +6,10 @@ import { supabase } from '../lib/supabaseClient'
 
 
 
-async function signUpNewUser() {
+async function signUpNewUser(x,y) {
   const { data, error } = await supabase.auth.signUp({
-    email: 'conplay55@gmail.com',
-    password: 'testtest',
+    email: x,
+    password: y,
     
   })
 }
@@ -20,14 +20,18 @@ async function signUpNewUser() {
 </script>
 
 <template>
-  
+ <!--  <form>
+
 <label for="Email">Enter your email</label><br>
 <input type="text" id="Email" name="Email" ><br>
-
 <label for="Email">Make a password</label><br>
 <input type="text" id="PASSWORD" name="Email" ><br>
-<input type="submit" @click="console.log(test)"><br> <!-- collect the form data nad use it in sumbi funtion -->
+<input  type="submit" value="Submit" @click=" console.log('OMG')"><br> 
+</form> 
 
 
-  <button  @click="signUpNewUser() , console.log('bozo lost his data')">SUMBIT DATA</button>
+I think i cant do it with fomrs.....-->
+
+  <button  @click="console.log('test1232') , console.log('bozo lost his data')">SUMBIT DATA</button>
+
 </template>
