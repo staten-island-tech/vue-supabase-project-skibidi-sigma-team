@@ -6,10 +6,10 @@ import { supabase } from '../lib/supabaseClient'
 
 
 
-async function signUpNewUser(x,y) {
+async function signUpNewUser() {
   const { data, error } = await supabase.auth.signUp({
-    email: x,
-    password: y,
+    email: email.value
+    password:  password.value
     
   })
 }
@@ -20,18 +20,12 @@ async function signUpNewUser(x,y) {
 </script>
 
 <template>
- <!--  <form>
-
-<label for="Email">Enter your email</label><br>
-<input type="text" id="Email" name="Email" ><br>
-<label for="Email">Make a password</label><br>
-<input type="text" id="PASSWORD" name="Email" ><br>
-<input  type="submit" value="Submit" @click=" console.log('OMG')"><br> 
-</form> 
+<form   >
 
 
-I think i cant do it with fomrs.....-->
+</form>
 
-  <button  @click="console.log('test1232') , console.log('bozo lost his data')">SUMBIT DATA</button>
 
+
+  
 </template>
