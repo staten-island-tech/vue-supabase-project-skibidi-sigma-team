@@ -10,6 +10,12 @@
         {{ item.amount }}
       </p>
     </template>
+    <template #footer>
+      <div class="flex gap-3 mt-1">
+        <Button label="Cancel" severity="secondary" outlined class="w-full" />
+        <Button label="Save" class="w-full" />
+      </div>
+    </template>
   </Card>
 </template>
 <!--   <ul>
@@ -17,7 +23,7 @@
     </ul> -->
 <script setup>
 import Card from 'primevue/card'
-
+import Button from 'primevue/button'
 const props = defineProps({
   item: Object
 })
