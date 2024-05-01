@@ -21,7 +21,7 @@ console.log(items)
       <PrimeCard class="m-5 p-5 items-center" v-for="item in items" :key="item.id" :item="item" />
     </div>
     <div class="dialdiv sticky top-0">
-      <SpeedDial />
+      <!--       <SpeedDial /> -->
     </div>
   </main>
 </template>
