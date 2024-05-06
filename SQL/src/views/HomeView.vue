@@ -8,6 +8,7 @@ async function getItems() {
   const { data } = await supabase.from('items').select()
   items.value = data
 }
+
 // display items here
 onMounted(() => {
   getItems()
