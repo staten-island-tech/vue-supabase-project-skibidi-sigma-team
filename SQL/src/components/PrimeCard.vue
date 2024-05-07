@@ -1,9 +1,12 @@
 <template>
   <Card>
-    <template #title>{{ item.name }}</template>
+    <template #title>{{ item.name }} </template>
     <template #subtitle>
       <p v-if="item.instock == true">In Stock</p>
       <p v-if="item.instock == false">Not in Stock</p>
+    </template>
+    <template #header>
+      <img alt="user header" :src="item.imageURL" />
     </template>
     <template #content>
       <p class="m-0" v-if="typeof item.amount === 'number'">
@@ -13,7 +16,7 @@
     <template #footer>
       <div class="flex gap-3 mt-1">
         <Button label="Cancel" severity="secondary" outlined class="w-full" />
-        <Button label="Save" class="w-full" />
+        <Button label="Edit" class="w-full" />
       </div>
     </template>
   </Card>
