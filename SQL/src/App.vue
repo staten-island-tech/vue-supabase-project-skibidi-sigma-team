@@ -1,7 +1,7 @@
 <template>
 
   <div>
-    <AboutView />
+    <LOGIN_INTO />
   </div>
 </template>
 
@@ -9,8 +9,9 @@
 
 
 <script setup lang="ts">
-import HomeView from './views/HomeView.vue'
-import AboutView from './views/AboutView.vue'
+
+import LOGIN_INTO from './views/LOGIN_INTO.vue';
+
 
 </script>
 
