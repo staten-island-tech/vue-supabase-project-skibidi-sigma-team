@@ -7,7 +7,7 @@ const route = useRoute()
 console.log(route.params.name)
 const items = ref([])
 async function getItems() {
-  const { data } = await supabase.from('items').select() // supabase filter here, and link from homeview cards
+  const { data, error } = await supabase.from('items').select().eq('name', `${route.params.name}`)
   items.value = data
 }
 
@@ -21,8 +21,13 @@ console.log(items)
 <template>
   <main>
     <div class="cardContainer flex flex-row justify-center flex-wrap">
-      <PrimeCard class="m-5 p-5 items-center" />
+      <PrimeCard
+        class="m-5 p-5 items-center"
+        v-for="item in items"
+        :key="item.id"
+        :item="item"
+        :editing="true"
+      />
     </div>
-    <h1>test</h1>
   </main>
 </template>

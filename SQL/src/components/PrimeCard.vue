@@ -14,9 +14,12 @@
       </p>
     </template>
     <template #footer>
-      <div class="flex gap-3 mt-1">
-        <Button label="Cancel" severity="secondary" outlined class="w-full" />
-        <Button label="Edit" class="w-full" />
+      <div v-if="!editing" class="flex gap-3 mt-1">
+        <router-link to="{name: 'item', params:{name:'{{ items.na,e }}'}}">
+          <!-- https://router.vuejs.org/guide/essentials/named-routes.html-->
+          <Button label="Cancel" severity="secondary" outlined class="w-full" />
+          <Button label="Edit" class="w-full" />
+        </router-link>
       </div>
     </template>
   </Card>
@@ -28,6 +31,7 @@
 import Card from 'primevue/card'
 import Button from 'primevue/button'
 const props = defineProps({
-  item: Object
+  item: Object,
+  editing: Boolean
 })
 </script>
