@@ -1,21 +1,21 @@
-<script setup>
-import { ref, onMounted } from 'vue'
-import { supabase } from './lib/supabaseClient'
+<template>
 
-const countries = ref([])
+  <div>
+    <LOGIN_INTO />
+  </div>
+</template>
 
-async function getCountries() {
-  const { data } = await supabase.from('countries').select()
-  countries.value = data
-}
 
-onMounted(() => {
-  getCountries()
-})
+
+
+<script setup lang="ts">
+
+import LOGIN_INTO from './views/LOGIN_INTO.vue';
+
+
 </script>
 
-<template>
-  <ul>
-    <li v-for="country in countries" :key="country.id">{{ country.name }}</li>
-  </ul>
-</template>
+
+
+
+<style></style>

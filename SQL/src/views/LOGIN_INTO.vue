@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import TIGER from '../components/TIGER.vue'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <TIGER />
   </main>
 </template>
