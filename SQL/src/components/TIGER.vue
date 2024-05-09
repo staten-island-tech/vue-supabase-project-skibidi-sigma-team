@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { supabase } from '../lib/supabaseClient';
+import { router }from 'vue-router';
 
 const email = ref('');
 const password = ref('');
@@ -28,6 +29,7 @@ async function signUpUser() {
   signedupvalue.value = true
   email.value = '';
     password.value = '';
+    router.push({path: '/home'})
 }
     
   } finally {
