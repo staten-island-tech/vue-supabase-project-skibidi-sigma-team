@@ -8,39 +8,19 @@ const password = ref('')
 const loading = ref(false)
 const signedupvalue = ref(false)
 
-async function signUpUser() {
-  try {
-    loading.value = true
-
-    const { user, error } = await supabase.auth.signUp({
-      email: email.value,
-      password: password.value
-    })
-
-    if (error) {
-      throw error
-    }
-
-    if (error) {
-      console.error('Error signing up user:', error.message)
-    } else {
-      console.log('User signed up successfully!')
-      signedupvalue.value = true
-      email.value = ''
-      password.value = ''
-      router.push('/home')
-    }
-  } finally {
-    loading.value = false
-  }
+async function signInWithEmail() {
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email: email.value,
+    password: password.value
+  })
 }
 </script>
 
 <template>
-  <form class="LOGIN_Vone" @submit.prevent="signUpUser">
+  <form class="LOGIN_Vone" @submit.prevent="signInWithEmail">
     <div class="somethingtest">
-      <h1>YO SUp</h1>
-      <p>Sign up down below!</p>
+      <h1>if u alr a user</h1>
+      <p>Log in down below!</p>
       <div>
         <input class="inputfield" required type="email" placeholder="Your email" v-model="email" />
         <input
