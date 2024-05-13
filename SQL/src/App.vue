@@ -1,21 +1,10 @@
 <template>
-
-  <div>
-    <LOGIN_INTO />
-  </div>
+  <RouterView />
 </template>
 
-
-
-
 <script setup lang="ts">
-
-import LOGIN_INTO from './views/LOGIN_INTO.vue';
-
-
+import { RouterLink, RouterView, useRoute } from 'vue-router'
+const route = useRoute()
 </script>
-
-
-
 
 <style></style>

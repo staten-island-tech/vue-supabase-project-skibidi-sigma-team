@@ -1,8 +1,9 @@
 <script setup>
 import { ref } from 'vue'
 import { supabase } from '../lib/supabaseClient'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
+const router = useRouter()
 const email = ref('')
 const password = ref('')
 const loading = ref(false)
@@ -12,17 +13,14 @@ async function signUpUser() {
   try {
     loading.value = true
 
-    const { user, error } = await supabase.auth.signUp({
+    const { data, error } = await supabase.auth.signUp({
       email: email.value,
       password: password.value
     })
 
     if (error) {
-      throw error
-    }
-
-    if (error) {
       console.error('Error signing up user:', error.message)
+      throw error
     } else {
       console.log('User signed up successfully!')
       signedupvalue.value = true
