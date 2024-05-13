@@ -7,7 +7,7 @@ const router = useRouter()
 const email = ref('')
 const password = ref('')
 const loading = ref(false)
-const signedupvalue = ref(false)
+const errorMessage = ref('')
 
 async function signUpUser() {
   try {
@@ -20,10 +20,10 @@ async function signUpUser() {
 
     if (error) {
       console.error('Error signing up user:', error.message)
+      errorMessage.value = error.message
       throw error
     } else {
       console.log('User signed up successfully!')
-      signedupvalue.value = true
       email.value = ''
       password.value = ''
       router.push('/home')
@@ -39,6 +39,7 @@ async function signUpUser() {
     <div class="somethingtest">
       <h1>YO SUp</h1>
       <p>Sign up down below!</p>
+      <p>{{ errorMessage }}</p>
       <div>
         <input class="inputfield" required type="email" placeholder="Your email" v-model="email" />
         <input
