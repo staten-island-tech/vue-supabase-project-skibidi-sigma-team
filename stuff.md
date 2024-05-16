@@ -1,8 +1,4 @@
-    necessary
-
-login
-
-optional
-
-search feature
-creation feature
+- search feature
+- create/edit item feature
+- pinia
+- make login look good
