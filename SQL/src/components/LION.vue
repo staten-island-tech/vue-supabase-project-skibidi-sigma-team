@@ -19,7 +19,7 @@ async function signInUser() {
       console.error('Error signing up user:', error.message)
       throw error
     } else {
-      console.log('User signed up successfully!')
+      console.log('User logged in successfully!')
       email.value = ''
       password.value = ''
       router.push('/home')
