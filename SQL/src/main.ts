@@ -2,7 +2,6 @@ import './assets/main.css'
 import 'primeicons/primeicons.css'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-
 import App from './App.vue'
 import router from './router'
 import Lara from '@/presets/lara'
@@ -19,4 +18,4 @@ app.use(PrimeVue, {
 })
 
 app.mount('#app')
-// install lara and wind presets
+/* error message passwords and input text */
