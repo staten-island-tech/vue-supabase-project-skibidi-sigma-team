@@ -2,15 +2,17 @@
 import { ref } from 'vue'
 import { supabase } from '../lib/supabaseClient'
 import { useRoute, useRouter } from 'vue-router'
+import { StealData } from '../stores/USER_DATA';
 
 const router = useRouter()
 const email = ref('')
 const password = ref('')
-const loading = ref(false)
+
+const stealing = StealData();
 
 async function signInUser() {
   try {
-    loading.value = true
+  
     const { data, error } = await supabase.auth.signInWithPassword({
       email: email.value,
       password: password.value
@@ -20,12 +22,14 @@ async function signInUser() {
       throw error
     } else {
       console.log('User logged in successfully!')
+      stealing.STEALTHIS(email.value)
       email.value = ''
       password.value = ''
       router.push('/home')
+
     }
   } finally {
-    loading.value = false
+ 
   }
 }
 </script>

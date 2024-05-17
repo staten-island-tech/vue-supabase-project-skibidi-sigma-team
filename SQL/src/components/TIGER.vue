@@ -6,12 +6,12 @@ import { useRoute, useRouter } from 'vue-router'
 const router = useRouter()
 const email = ref('')
 const password = ref('')
-const loading = ref(false)
+
 const errorMessage = ref('')
 
 async function signUpUser() {
   try {
-    loading.value = true
+
 
     const { data, error } = await supabase.auth.signUp({
       email: email.value,
@@ -29,7 +29,7 @@ async function signUpUser() {
       router.push('/home')
     }
   } finally {
-    loading.value = false
+
   }
 }
 </script>
