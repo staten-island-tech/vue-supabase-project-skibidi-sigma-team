@@ -37,6 +37,12 @@ const router = createRouter({
   component: Request_info
 }
 ,
+{
+  path: '/home',
+  name: 'HOME',
+  component: HOME
+}
+,
   ]
 })
 

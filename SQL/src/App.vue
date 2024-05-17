@@ -3,6 +3,7 @@
 <RouterLink to="/Cards">test1</RouterLink>
 <RouterLink to="/General ">test2</RouterLink>
 <RouterLink to="/Request">test3</RouterLink>
+<RouterLink to="/home">HOME</RouterLink>
 
 <!-- MAKE IT SO THAT THE NAV BAR IS ONLY VIUSBNLE AFGTER SIGING IN ( BRUH IT GOES INTO THE OTHER VIEW THAT ONLY SHOWA AFTER LOGGING IN WHAT THE HELL AM I SAYING HERE) -->
   </div>

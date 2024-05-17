@@ -9,8 +9,8 @@ const somethingtest1 = StealData();
     <h1>hello</h1>
   </main>
 
-<!--   <div>
+  <div>
 
     <p>EMAIL?: {{somethingtest1.email}}</p>
-  </div> -->
+  </div>
 </template>
