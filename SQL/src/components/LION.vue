@@ -2,12 +2,11 @@
 import { ref } from 'vue'
 import { supabase } from '../lib/supabaseClient'
 import { useRoute, useRouter } from 'vue-router'
-import { StealData } from '../stores/USER_DATA';
+import { StealData  } from '../stores/USER_DATA';
 
 const router = useRouter()
 const email = ref('')
 const password = ref('')
-
 const stealing = StealData();
 
 async function signInUser() {
@@ -54,8 +53,7 @@ async function signInUser() {
         <input
           type="submit"
           class="button block"
-          :value="loading ? 'Loading' : 'Log in'"
-          :disabled="loading"
+         
         />
       </div>
     </div>

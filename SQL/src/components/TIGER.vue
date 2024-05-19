@@ -55,8 +55,7 @@ async function signUpUser() {
         <input
           type="submit"
           class="button block"
-          :value="loading ? 'Loading' : 'Create user'"
-          :disabled="loading"
+          
         />
       </div>
     </div>

@@ -1,14 +1,7 @@
 <template>
-  <div class="NAV">
-<RouterLink to="/Cards">test1</RouterLink>
-<RouterLink to="/General ">test2</RouterLink>
-<RouterLink to="/Request">test3</RouterLink>
-<RouterLink to="/home">HOME</RouterLink>
-
-<!-- MAKE IT SO THAT THE NAV BAR IS ONLY VIUSBNLE AFGTER SIGING IN ( BRUH IT GOES INTO THE OTHER VIEW THAT ONLY SHOWA AFTER LOGGING IN WHAT THE HELL AM I SAYING HERE) -->
-  </div>
+  
   <RouterView />
-
+<!-- Use this for pinia state mangment so that it stays after relkoading (npm install pinia-plugin-persistedstate) -->
 </template>
 
 <script setup lang="ts">

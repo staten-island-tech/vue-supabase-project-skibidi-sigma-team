@@ -14,4 +14,11 @@ export const StealData = defineStore('user', {
       this.email = '';
     },
   },
+  persist: true,
 });
+
+
+
+
+
+
