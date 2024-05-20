@@ -1,4 +1,3 @@
-
 import './assets/main.css'
 import 'primeicons/primeicons.css'
 import { createApp } from 'vue'
@@ -8,15 +7,14 @@ import router from './router'
 import Lara from '@/presets/lara'
 
 import PrimeVue from 'primevue/config'
-import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
-
-const app = createApp(App);
-const pinia = createPinia();
-pinia.use(piniaPluginPersistedstate);
+const app = createApp(App)
+const pinia = createPinia()
+pinia.use(piniaPluginPersistedstate)
 
 app.use(createPinia())
-app.use(pinia);
+app.use(pinia)
 app.use(router)
 app.use(PrimeVue, {
   unstyled: true,

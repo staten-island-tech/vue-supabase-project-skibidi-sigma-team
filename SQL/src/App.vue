@@ -6,10 +6,7 @@ console.log(route.name)
 :to */
 </script>
 
-<style>
-
-
-</style>
+<style></style>
 <template>
   <RouterView />
 </template>
