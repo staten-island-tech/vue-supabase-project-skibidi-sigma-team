@@ -1,15 +1,15 @@
-<template>
-  
-  <RouterView />
-<!-- Use this for pinia state mangment so that it stays after relkoading (npm install pinia-plugin-persistedstate) -->
-</template>
-
 <script setup lang="ts">
 import { RouterLink, RouterView, useRoute } from 'vue-router'
 const route = useRoute()
+console.log(route.name)
+/*DIV -> router-link w/ computed from 'vue'
+:to */
 </script>
 
 <style>
 
 
 </style>
+<template>
+  <RouterView />
+</template>

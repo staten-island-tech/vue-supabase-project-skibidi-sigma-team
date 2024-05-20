@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HOME from '../views/HOME.vue'
+import HOME from '../views/HomeView.vue'
 import LOGIN_INTO from '../views/LOGIN_INTO.vue'
 import Cards from '@/views/Cards.vue'
 import MakerSpace from '@/views/MakerSpace.vue'
 import Request_info from '@/views/Request_info.vue'
+import ITEMVIEW from '../views/ItemView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,6 +13,14 @@ const router = createRouter({
       path: '/home',
       name: 'home',
       component: HOME
+    },
+    {
+      path: '/item/:name',
+      name: 'item',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: ITEMVIEW
     },
     {
       path: '/',
@@ -45,5 +54,5 @@ const router = createRouter({
 ,
   ]
 })
-
+/* path'/data/:id' */
 export default router
