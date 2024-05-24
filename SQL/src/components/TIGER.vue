@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { supabase } from '../lib/supabaseClient'
 import { useRoute, useRouter } from 'vue-router'
+import Password from 'primevue/password'
 
 const router = useRouter()
 const email = ref('')
@@ -42,14 +43,17 @@ async function signUpUser() {
       <p>{{ errorMessage }}</p>
       <div>
         <input class="inputfield" required type="email" placeholder="Your email" v-model="email" />
-        <input
+        <Password
           class="inputfield"
           required
           type="password"
           placeholder="Create password"
-          v-model="password"
+          :feedback="true"
+          toggleMask
           minlength="6"
+          v-model="password"
         />
+        <!-- https://stackoverflow.com/questions/67163183/based-on-length-how-to-check-values-in-vuejs-->
       </div>
       <div>
         <input

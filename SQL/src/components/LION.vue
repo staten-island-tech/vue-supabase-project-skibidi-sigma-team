@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { supabase } from '../lib/supabaseClient'
 import { useRoute, useRouter } from 'vue-router'
+import Password from 'primevue/password'
 
 const router = useRouter()
 const email = ref('')
@@ -37,13 +38,14 @@ async function signInUser() {
       <p>Log in down below!</p>
       <div>
         <input class="inputfield" required type="email" placeholder="Your email" v-model="email" />
-        <input
+        <Password
           class="inputfield"
           required
           type="password"
           placeholder="Your password"
           v-model="password"
-          minlength="6"
+          :feedback="false"
+          toggleMask
         />
       </div>
       <div>
