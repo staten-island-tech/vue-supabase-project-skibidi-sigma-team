@@ -5,7 +5,7 @@ import Cards from '@/views/Cards.vue'
 import MakerSpace from '@/views/MakerSpace.vue'
 import Request_info from '@/views/Request_info.vue'
 import ITEMVIEW from '../views/ItemView.vue'
-
+import ReservePage from '../views/ReservePage.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -27,7 +27,7 @@ const router = createRouter({
       name: 'login',
       component: LOGIN_INTO
     }
-  ,
+,
   {
     path: '/Cards',
     name: 'Cards',
@@ -50,6 +50,11 @@ const router = createRouter({
   path: '/home',
   name: 'HOME',
   component: HOME
+}
+,{
+  path: '/reserve',
+  name: 'Reserve',
+  component: ReservePage
 }
 ,
   ]

@@ -1,0 +1,1 @@
+PUT IN THE RESERVE BUTTON IN HERE AND THEN ADD THIS TO HOME.vue this will make it work 
