@@ -4,6 +4,7 @@ import { StealData } from '../stores/USER_DATA';
 import { useRoute, useRouter } from 'vue-router'
 const somethingtest1 = StealData();
 const router = useRouter()
+import ReserveButton from '@/components/ReserveButton.vue';
 
 function REROUTE(): void {if(somethingtest1.email === ''){router.push('/')}} 
 
@@ -46,12 +47,13 @@ console.log(items)
 <RouterLink to="/General ">test2</RouterLink>
 <RouterLink to="/Request">test3</RouterLink>
 <RouterLink to="/home">HOME</RouterLink>
+
   </div>
 
   <div>
 
 <p>EMAIL?: {{somethingtest1.email}}</p>
-
+<ReserveButton/>
 </div>
 
 <button @click="somethingtest1.clearUser(), REROUTE() ">LOG OUT!</button>

@@ -2,10 +2,10 @@
 import { useRoute, useRouter } from 'vue-router'
 const router = useRouter()
 
-function REROUTE(): void {{router.push('/reserve')}} 
+function REROUTE1(): void {{router.push('/reserve')}} 
 
 </script>
 
 <template>
- <button @click="REROUTE(),">Reserve</button>
+ <button @click=" REROUTE1()">Reserve</button>
 </template>
