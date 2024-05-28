@@ -2,3 +2,4 @@
 - create/edit item feature
 - pinia
 - make login look good
+- function as prop
