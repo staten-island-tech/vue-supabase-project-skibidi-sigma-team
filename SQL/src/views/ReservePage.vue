@@ -6,7 +6,7 @@ import { useRoute, useRouter } from 'vue-router'
 const router = useRouter()
 const test1 = ref('')
 const ttest2 = ref('')
-let CURRENTVALUE;
+let CURRENTVALUE = 0
 const itemValues = {
   'Hot Glue Gun': 2,
   '3d Printer time': 9,
@@ -25,25 +25,35 @@ const itemValues = {
   'Red Paint': 11,
   'scissors': 17,
   "Elmer's Glue": 19,
-  'White Paintcarboard boxes': 4,
+  'White Paint' :13,
+  'carboard boxes': 4,
   'Cardbaord scraps': 16,
   'Green Paint': 10
 };
 
 
 
-async function getCurrentValue(x) {
+async function getCurrentValue(x,y) {
+  try{
   const { data, error } = await supabase
     .from('items')
-    .select('amount')
+    .select(y)
     .eq('id', x)
     .single();
   /* x is row id froom input */
- 
-  
+  if (error) {
+      throw new Error(`Error fetching data: ${error.message}`);
+    }
+
   CURRENTVALUE = data ? data.amount : null; // store the current value in the variable
   return CURRENTVALUE;
-}
+
+  
+} catch (error) {
+    console.error('An error occurred in getCurrentValue:', error.message);
+    // You can handle the error further if needed, e.g., by returning a default value
+    return null;
+  }}
 
 async function RESERVEDATA(T,y) {
 
@@ -52,9 +62,17 @@ async function RESERVEDATA(T,y) {
     .update({ 
       amount: T
     })
-    .eq('id',y);
+    .eq('id',y); 
+}
 
-  
+async function RESERVEDATA1(T,y) {
+
+const { data, error } = await supabase
+.from('items')
+.update({ 
+  LiquidAmountsinml: T
+})
+.eq('id',y); 
 }
 
 async function RESERVEUPDATE(E,y){
@@ -70,12 +88,32 @@ async function RESERVEUPDATE(E,y){
 
 async function TOGETHER(){
     const SIGMA_OHIO = itemValues[ttest2.value]; // checks the user input and matchs it to the dicotnary key value pair
-await getCurrentValue(SIGMA_OHIO)
+    const ML_values = [6,10,13,19,11,12,14,5]
+    if (!ML_values.includes(SIGMA_OHIO)){
+      await getCurrentValue(SIGMA_OHIO, 'amount')
+      console.log(CURRENTVALUE)
 const amounut_true = CURRENTVALUE - test1.value
 console.log(amounut_true)
 await RESERVEDATA(amounut_true,SIGMA_OHIO)
 await RESERVEUPDATE(test1.value,SIGMA_OHIO)
 
+    }
+
+
+    else{
+      console.log(CURRENTVALUE)
+      console.log('test1')
+      await getCurrentValue(SIGMA_OHIO, 'nonsolid')
+      console.log(CURRENTVALUE) // IT WONT GET THE CURRENT VALUE EVNE THOUGH THE OTHER ONE WORKS FINE LIKE HUH?!?!?! WTF<
+      const amounut_true1 = CURRENTVALUE - test1.value
+      console.log(amounut_true1)
+      await RESERVEDATA1(amounut_true1,SIGMA_OHIO)
+      console.log('test3')
+      await RESERVEUPDATE(test1.value,SIGMA_OHIO)
+}
+
+//THE ONLY COLOUM FOR SOME REASON THAT CVAN BE READ IS THE AMOUNT COLOUM HOW TF THIS IS POSSIBLE I DONT KNOW ITS GIVING ME A MENTAL NREAK DOWN WHY IS THAT THE ONLY READABLE COLOUM!!!!! 
+// IF THE OTHER ONESA ARE THE EXAXTR SAME THING HOW TF DOES THAT EVEN OWQRK
 }
 </script>
 
@@ -105,8 +143,10 @@ await RESERVEUPDATE(test1.value,SIGMA_OHIO)
 </template>
 
 <!-- 
-we need to dot the liqud ML ones( they need their own function bceause you take from diffrent coloum)if there is no amount checks oir liquad amount colum this needs to be put in every fgunction here so that i doesnt break
+we need to do the liqud ML ones( they need their own function bceause you take from diffrent coloum)if there is no amount checks oir liquad amount colum this needs to be put in every fgunction here so that i doesnt break
 add in checks so that you cant reserve if there is 0 amount avaible 
 
 tell richard to make the cards how amount avubale and amount reserved so that it doenst look stupid
+
+the reserve amounts need to be added together as well
  -->
