@@ -1,6 +1,5 @@
 <script setup>
 import PrimeCard from '@/components/PrimeCard.vue'
-import SpeedDial from '@/components/SpeedDial.vue'
 import { ref, onMounted } from 'vue'
 import { supabase } from '../lib/supabaseClient.js'
 const items = ref([])

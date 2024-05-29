@@ -1,5 +1,5 @@
 - search feature
-- create/edit item feature
-- pinia
+- create/edit item feature (with pictures)
+- pinia (learn it)
 - make login look good
-- function as prop
+- function as prop?

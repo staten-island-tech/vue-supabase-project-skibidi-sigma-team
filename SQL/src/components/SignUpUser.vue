@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { supabase } from '../lib/supabaseClient'
 import { useRoute, useRouter } from 'vue-router'
+import Button from 'primevue/button'
 import Password from 'primevue/password'
 
 const router = useRouter()
@@ -40,10 +41,11 @@ async function signUpUser() {
     <div class="somethingtest">
       <h1>YO SUp</h1>
       <p>Sign up down below!</p>
-      <p>{{ errorMessage }}</p>
+      <p v-if="errorMessage">{{ errorMessage }}</p>
       <div>
         <input class="inputfield" required type="email" placeholder="Your email" v-model="email" />
         <Password
+          v-model="password"
           class="inputfield"
           required
           type="password"
@@ -51,17 +53,10 @@ async function signUpUser() {
           :feedback="true"
           toggleMask
           minlength="6"
-          v-model="password"
         />
-        <!-- https://stackoverflow.com/questions/67163183/based-on-length-how-to-check-values-in-vuejs-->
       </div>
       <div>
-        <input
-          type="submit"
-          class="button block"
-          :value="loading ? 'Loading' : 'Create user'"
-          :disabled="loading"
-        />
+        <Button label="Log In" type="submit" class="button block" :disabled="loading" />
       </div>
     </div>
   </form>
