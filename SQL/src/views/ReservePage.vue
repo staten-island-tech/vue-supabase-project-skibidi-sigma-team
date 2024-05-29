@@ -39,7 +39,7 @@ async function getCurrentValue(x,y) {
     .from('items')
     .select(y)
     .eq('id', x)
-    .single();
+    
   /* x is row id froom input */
   if (error) {
       throw new Error(`Error fetching data: ${error.message}`);
@@ -89,8 +89,8 @@ async function RESERVEUPDATE(E,y){
 async function TOGETHER(){
     const SIGMA_OHIO = itemValues[ttest2.value]; // checks the user input and matchs it to the dicotnary key value pair
     const ML_values = [6,10,13,19,11,12,14,5]
-    if (!ML_values.includes(SIGMA_OHIO)){
-      await getCurrentValue(SIGMA_OHIO, 'amount')
+    if (ML_values.includes(SIGMA_OHIO)){
+      await getCurrentValue(SIGMA_OHIO, 'nonsolid')
       console.log(CURRENTVALUE)
 const amounut_true = CURRENTVALUE - test1.value
 console.log(amounut_true)
@@ -103,7 +103,7 @@ await RESERVEUPDATE(test1.value,SIGMA_OHIO)
     else{
       console.log(CURRENTVALUE)
       console.log('test1')
-      await getCurrentValue(SIGMA_OHIO, 'nonsolid')
+      await getCurrentValue(SIGMA_OHIO, 'amount')
       console.log(CURRENTVALUE) // IT WONT GET THE CURRENT VALUE EVNE THOUGH THE OTHER ONE WORKS FINE LIKE HUH?!?!?! WTF<
       const amounut_true1 = CURRENTVALUE - test1.value
       console.log(amounut_true1)
