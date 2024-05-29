@@ -89,6 +89,7 @@ async function RESERVEUPDATE(E,y){
 async function TOGETHER(){
     const SIGMA_OHIO = itemValues[ttest2.value]; // checks the user input and matchs it to the dicotnary key value pair
     const ML_values = [6,10,13,19,11,12,14,5]
+    console.log(SIGMA_OHIO)
     if (ML_values.includes(SIGMA_OHIO)){
       await getCurrentValue(SIGMA_OHIO, 'nonsolid')
       console.log(CURRENTVALUE)
@@ -99,7 +100,7 @@ await RESERVEUPDATE(test1.value,SIGMA_OHIO)
 
     }
 
-
+//
     else{
       console.log(CURRENTVALUE)
       console.log('test1')
