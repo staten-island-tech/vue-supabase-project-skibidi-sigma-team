@@ -39,8 +39,6 @@ async function signUpUser() {
 <template>
   <form class="LOGIN_Vone" @submit.prevent="signUpUser">
     <div class="somethingtest">
-      <h1>YO SUp</h1>
-      <p>Sign up down below!</p>
       <p v-if="errorMessage">{{ errorMessage }}</p>
       <div>
         <input class="inputfield" required type="email" placeholder="Your email" v-model="email" />
@@ -56,7 +54,7 @@ async function signUpUser() {
         />
       </div>
       <div>
-        <Button label="Log In" type="submit" class="button block" :disabled="loading" />
+        <Button label="Sign Up" type="submit" class="button block" :disabled="loading" />
       </div>
     </div>
   </form>

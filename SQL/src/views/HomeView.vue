@@ -1,5 +1,6 @@
 <script setup>
 import PrimeCard from '@/components/PrimeCard.vue'
+import InputText from 'primevue/inputtext'
 import { ref, onMounted } from 'vue'
 import { supabase } from '../lib/supabaseClient.js'
 const items = ref([])
@@ -26,8 +27,11 @@ console.log(items)
         :editing="false"
       />
     </div>
-    <div class="dialdiv sticky top-0">
-      <!--       <SpeedDial /> -->
-    </div>
+
+    <InputText
+      class="fixed top-0 left-0 z-999 justify-center align-center"
+      type="text"
+      v-model="value"
+    />
   </main>
 </template>

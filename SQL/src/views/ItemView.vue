@@ -3,6 +3,7 @@ import PrimeCard from '@/components/PrimeCard.vue'
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { supabase } from '../lib/supabaseClient.js'
+import Toolbar from 'primevue/toolbar'
 const route = useRoute()
 console.log(route.params.name)
 const items = ref([])

@@ -37,25 +37,21 @@ async function signInUser() {
 
 <template>
   <form class="LOGIN_Vone" @submit.prevent="signInUser">
-    <div class="somethingtest">
-      <h1>if u alr a user</h1>
-      <p>Log in down below!</p>
-      <p v-if="errorMessage" class="text-red-600">{{ errorMessage }}</p>
-      <div>
-        <input class="inputfield" required type="email" placeholder="Your email" v-model="email" />
-        <Password
-          class="inputfield"
-          required
-          type="password"
-          placeholder="Your password"
-          v-model="password"
-          :feedback="false"
-          toggleMask
-        />
-      </div>
-      <div>
-        <Button label="Sign Up" type="submit" class="button block" :disabled="loading" />
-      </div>
+    <p v-if="errorMessage" class="text-red-600">{{ errorMessage }}</p>
+    <div>
+      <input class="inputfield" required type="email" placeholder="Your email" v-model="email" />
+      <Password
+        class="inputfield"
+        required
+        type="password"
+        placeholder="Your password"
+        v-model="password"
+        :feedback="false"
+        toggleMask
+      />
+    </div>
+    <div>
+      <Button label="Log In" type="submit" class="button block" :disabled="loading" />
     </div>
   </form>
 </template>
