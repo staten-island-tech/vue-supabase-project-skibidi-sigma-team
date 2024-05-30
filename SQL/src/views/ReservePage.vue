@@ -6,7 +6,7 @@ import { useRoute, useRouter } from 'vue-router'
 const router = useRouter()
 const test1 = ref('')
 const ttest2 = ref('')
-let CURRENTVALUE = null // nake this a ref or something and store all the data fdrom tehc all in here and then we can sort through
+let CURRENTVALUE = []
 const tableName = 'items';
 const itemValues = {
   'Hot Glue Gun': 2,
@@ -44,7 +44,9 @@ async function getCurrentValue() {
   }
 
   console.log('Fetched data:', data);
-
+  CURRENTVALUE = data
+  return CURRENTVALUE
+  
   
 }
 
@@ -78,20 +80,37 @@ async function RESERVEUPDATE(E,y){
 
 }
 
+async function returnvalue(x){
+  await getCurrentValue()
+      const ROWID = 5
+      console.log(x)
+      CURRENTVALUE.forEach(row =>{ if(row.id = ROWID){(x = row.nonsolid)}})
+      console.log('test')
+      return x }
 
-async function TOGETHER(){
-  
-      await getCurrentValue()
       
+async function TOGETHER(){
+  const currentvalueofitem = 0
+      returnvalue(currentvalueofitem).then(console.log(currentvalueofitem)).then(console.log('te231st'))
+
+
+      
+    //.then after each sync function to run async funion first the the code insisde the ()
+    // the .thens are running firs when they should not
+      };
+      
+
+
+     
 //rewriter all code and logic
     
-}
+
 
 </script>
 
 <template>
   <form class="testthisthat" @submit.prevent="TOGETHER">
-    <div class="somethingtest">
+    <div class="somethingtest"> 
       <h1>RESERVE?</h1>
 
       
