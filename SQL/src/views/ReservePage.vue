@@ -34,71 +34,36 @@ const itemValues = {
 
 
 
-async function getCurrentValue() {
-  
-  const { data, error } = await supabase.from(tableName).select('*');
-
-  if (error) {
-    console.error('Error fetching data:', error);
-    return;
-  }
-
-  console.log('Fetched data:', data);
-  CURRENTVALUE = data
-  return CURRENTVALUE
-  
-  
-}
-
-async function RESERVEDATA(T,y) {
-
-    const { data, error } = await supabase
-    .from('items')
-    .update({ 
-      amount: T
-    })
-    .eq('id',y); 
-}
-
-async function RESERVEDATA1(T,y) {
-
-const { data, error } = await supabase
-.from('items')
-.update({ 
-  LiquidAmountsinml: T
-})
-.eq('id',y); 
-}
-
-async function RESERVEUPDATE(E,y){
-    const { data, error } = await supabase
-    .from('items')
-    .update({ 
-        reserveAM: E
-    })
-    .eq('id',y);
-
-}
-
-async function returnvalue(x){
-  await getCurrentValue()
-      const ROWID = 5
-      console.log(x)
-      CURRENTVALUE.forEach(row =>{ if(row.id = ROWID){(x = row.nonsolid)}})
-      console.log('test')
-      return x }
 
       
 async function TOGETHER(){
-  const currentvalueofitem = 0
-      returnvalue(currentvalueofitem).then(console.log(currentvalueofitem)).then(console.log('te231st'))
+  const ML_values = [6,10,13,19,11,12,14,5]
+  const SIGMA_OHIO = itemValues[ttest2.value]; // checks the user input and matchs it to the dicotnary key value pair
+ 
+  if(ML_values.includes(SIGMA_OHIO)){
+    const { data, error } = await supabase.from(tableName).select('*');
+
+if (error) {
+  console.error('Error fetching data:', error);
+  return;
+}
+  let returnvaluetosupabase= ref(0)
+console.log('Fetched data:', data);
+data.forEach(row => {if(row.id === SIGMA_OHIO){console.log(row.nonsolid), console.log(test1.value) , console.log(row.nonsolid - test1.value), returnvaluetosupabase = row.nonsolid - test1.value , return returnvaluetosupabase}
+});
 
 
-      
-    //.then after each sync function to run async funion first the the code insisde the ()
-    // the .thens are running firs when they should not
-      };
-      
+  // some error here idk
+
+
+  else{
+
+  }
+
+ 
+ 
+
+  }}
 
 
      
