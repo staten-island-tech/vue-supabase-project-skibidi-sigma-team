@@ -56,14 +56,16 @@ data.forEach(row => {if(row.id === SIGMA_OHIO){console.log(row.nonsolid), consol
   // some error here idk
 
 
-  else{
+  
+
+ 
+ 
 
   }
+  else{
 
- 
- 
-
-  }}
+}
+}
 
 
      
