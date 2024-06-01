@@ -5,6 +5,7 @@ const route = useRoute()
 :to */
 </script>
 
+<style></style>
 <template>
   <RouterView />
 </template>
