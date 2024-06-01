@@ -13,8 +13,6 @@ const errorMessage = ref('')
 
 async function signUpUser() {
   try {
-
-
     const { data, error } = await supabase.auth.signUp({
       email: email.value,
       password: password.value
@@ -31,7 +29,7 @@ async function signUpUser() {
       router.push('/home')
     }
   } finally {
-
+    loading.value = false
   }
 }
 </script>
@@ -54,15 +52,7 @@ async function signUpUser() {
         />
       </div>
       <div>
-<<<<<<< HEAD:SQL/src/components/SignUpUser.vue
         <Button label="Sign Up" type="submit" class="button block" :disabled="loading" />
-=======
-        <input
-          type="submit"
-          class="button block"
-          
-        />
->>>>>>> 7f5233d9d21332a18ffcc26cc7445749aba96e85:SQL/src/components/TIGER.vue
       </div>
     </div>
   </form>

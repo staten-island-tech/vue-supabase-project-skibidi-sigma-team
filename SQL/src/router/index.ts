@@ -1,9 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HOME from '../views/HomeView.vue'
 import LOGIN_INTO from '../views/LOGIN_INTO.vue'
-import Cards from '@/views/Cards.vue'
 import MakerSpace from '@/views/MakerSpace.vue'
-import Request_info from '@/views/Request_info.vue'
 import ITEMVIEW from '../views/ItemView.vue'
 
 const router = createRouter({
@@ -26,32 +24,17 @@ const router = createRouter({
       path: '/',
       name: 'login',
       component: LOGIN_INTO
+    },
+    {
+      path: '/General ',
+      name: 'General',
+      component: MakerSpace
+    },
+    {
+      path: '/home',
+      name: 'HOME',
+      component: HOME
     }
-  ,
-  {
-    path: '/Cards',
-    name: 'Cards',
-    component: Cards
-  }
-,
-{
-  path: '/General ',
-  name: 'General',
-  component: MakerSpace
-}
-,
-{
-  path: '/Request',
-  name: 'request',
-  component: Request_info
-}
-,
-{
-  path: '/home',
-  name: 'HOME',
-  component: HOME
-}
-,
   ]
 })
 /* path'/data/:id' */

@@ -1,19 +1,10 @@
 <script setup lang="ts">
-<<<<<<< HEAD
 import { ref } from 'vue'
 import TIGER from '../components/SignUpUser.vue'
 import LION from '../components/SignInUser.vue'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
 const isRecurringUser = ref(true)
-=======
-import TIGER from '../components/TIGER.vue'
-import LION from '../components/LION.vue'
-import { StealData } from '../stores/USER_DATA';
-const somethingtest1 = StealData();
-
-
->>>>>>> 7f5233d9d21332a18ffcc26cc7445749aba96e85
 </script>
 
 <template>
@@ -45,6 +36,5 @@ const somethingtest1 = StealData();
       />
     </div>
   </main>
-  <p>EMAIL?: {{somethingtest1.email}}</p>
 </template>
 <!-- make login, show error messaghe -->

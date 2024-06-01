@@ -16,7 +16,6 @@
     <template #footer>
       <div v-if="!editing" class="flex gap-3 mt-1">
         <router-link :to="{ name: 'item', params: { name: item.name } }">
-          <!-- https://router.vuejs.org/guide/essentials/named-routes.html-->
           <Button label="View" class="w-full" />
         </router-link>
       </div>
