@@ -6,7 +6,7 @@ import { useRoute, useRouter } from 'vue-router'
 const router = useRouter()
 const test1 = ref('')
 const ttest2 = ref('')
-let CURRENTVALUE = []
+
 const tableName = 'items';
 const itemValues = {
   'Hot Glue Gun': 2,
@@ -63,44 +63,36 @@ async function UPDATEVALUES3(y,z){
 async function TOGETHER(){
   const ML_values = [6,10,13,19,11,12,14,5]
   const SIGMA_OHIO = itemValues[ttest2.value]; // checks the user input and matchs it to the dicotnary key value pair
- 
   if(ML_values.includes(SIGMA_OHIO)){
     const { data, error } = await supabase.from(tableName).select('*');
   let returnvaluetosupabase= ref(0)
-console.log('Fetched data:', data);
-data.forEach(row => {if(row.id === SIGMA_OHIO){returnvaluetosupabase = row.nonsolid}
-});
-
-console.log('test' , returnvaluetosupabase)
-
-const computed  = returnvaluetosupabase - test1.value
-
+  let poopthang = ref(0)
+data.forEach(row => {if(row.id === SIGMA_OHIO){returnvaluetosupabase = row.nonsolid}});
+if(test1.value > returnvaluetosupabase){alert("You cant reserve more then the stock amount")}
+else{const computed  = returnvaluetosupabase - test1.value
 UPDATEVALUES(computed,SIGMA_OHIO)
+data.forEach(row => {if(row.id === SIGMA_OHIO){poopthang = row.reserveAM}});
+const othertruevalue = poopthang + test1.value
+UPDATEVALUES3(othertruevalue, SIGMA_OHIO)}
+// can add a router push here in order to bring them back to another page or home page once request is sumbbited 
 }
 
 else{
   const { data, error } = await supabase.from(tableName).select('*');
  let thisvar = ref(0)
  let reservecurrent = ref(0)
- console.log('Fetched data:', data);
  data.forEach(row => {if(row.id === SIGMA_OHIO){thisvar = row.amount}});
-console.log('your thing', thisvar)
-const calcutlate  = thisvar - test1.value
+ if(test1.value > thisvar){alert("You cant reserve more then the stock amount")}
+ else{const calcutlate  = thisvar - test1.value
 UPDATEVALUES2(calcutlate,SIGMA_OHIO)
-// fetech current resefve amount and add the user value to that 
-// one of the functions is interfering with the other maybe 
-// its taking current vlaue and adding reserve value and then putting that back into the table
-data.forEach(row => {if(row.id === SIGMA_OHIO){reservecurrent = row.amount}});
+data.forEach(row => {if(row.id === SIGMA_OHIO){reservecurrent = row.reserveAM}});
  const TrueValue = reservecurrent + test1.value
-UPDATEVALUES3(TrueValue,SIGMA_OHIO)
-
-
+UPDATEVALUES3(TrueValue,SIGMA_OHIO)}
+// can add a router push here in order to bring them back to another page or home page once request is sumbbited 
 }
-
 }
      
-//now that the values can be changed you need to do the reserve catogries and add in logic so that if its zero you cant reserve anymore( for this user .alert or that things)
-    
+
 
 
 </script>
@@ -130,11 +122,3 @@ UPDATEVALUES3(TrueValue,SIGMA_OHIO)
   </form>
 </template>
 
-<!-- 
-we need to do the liqud ML ones( they need their own function bceause you take from diffrent coloum)if there is no amount checks oir liquad amount colum this needs to be put in every fgunction here so that i doesnt break
-add in checks so that you cant reserve if there is 0 amount avaible 
-
-tell richard to make the cards how amount avubale and amount reserved so that it doenst look stupid
-
-the reserve amounts need to be added together as well
- -->
