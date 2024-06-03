@@ -30,12 +30,13 @@ function pushItem(itemParam) {
 <template>
   <main>
     <div>
+      <h1 class="text-6xl text-center">Maker Spalker Reberb</h1>
       <Dropdown
         v-model="selectedItem"
         :options="listOfNames"
         editable
         placeholder="Select an Item"
-        class="w-full md:w-14rem"
+        class="w-5rem"
       />
       <Button label="search" @click="pushItem(selectedItem)" />
     </div>
