@@ -40,13 +40,12 @@ async function signInUser() {
     <div>
       <input class="inputfield" required type="email" placeholder="Your email" v-model="email" />
       <Password
-        class="inputfield"
+        class="inputfield mb-7"
         required
         type="password"
         placeholder="Your password"
         v-model="password"
         :feedback="false"
-        toggleMask
       />
     </div>
     <div>

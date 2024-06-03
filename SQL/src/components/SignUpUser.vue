@@ -42,12 +42,11 @@ async function signUpUser() {
         <input class="inputfield" required type="email" placeholder="Your email" v-model="email" />
         <Password
           v-model="password"
-          class="inputfield"
+          class="inputfield mb-7"
           required
           type="password"
+          :feedback="false"
           placeholder="Create password"
-          :feedback="true"
-          toggleMask
           minlength="6"
         />
       </div>
