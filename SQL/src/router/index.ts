@@ -3,6 +3,7 @@ import HOME from '../views/HomeView.vue'
 import LOGIN_INTO from '../views/LOGIN_INTO.vue'
 import MakerSpace from '@/views/MakerSpace.vue'
 import ITEMVIEW from '../views/ItemView.vue'
+import CREATE from '../views/CreateView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,6 +35,11 @@ const router = createRouter({
       path: '/home',
       name: 'HOME',
       component: HOME
+    },
+    {
+      path: '/create',
+      name: 'CREATE',
+      component: CREATE
     }
   ]
 })

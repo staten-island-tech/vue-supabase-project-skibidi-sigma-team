@@ -48,6 +48,7 @@ function pushItem(itemParam) {
         :item="item"
         :editing="false"
       />
+      <Button label="create item" @click="router.push('/create')" />
     </div>
   </main>
 </template>
