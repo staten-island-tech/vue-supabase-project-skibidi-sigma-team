@@ -5,6 +5,7 @@ import { useRoute, useRouter } from 'vue-router'
 const somethingtest1 = StealData();
 const router = useRouter()
 
+
 function REROUTE(): void {if(somethingtest1.email === ''){router.push('/')}} 
 
 
