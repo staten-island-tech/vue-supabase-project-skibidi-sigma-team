@@ -33,8 +33,32 @@ const itemValues = {
 };
 
 
+async function UPDATEVALUES(y,z){
+  const { error } = await supabase
+  .from('items')
+  .update({ 'nonsolid': y })
+  .eq('id', z)
+
+}
+
+async function UPDATEVALUES2(y,z){
+  const { error } = await supabase
+  .from('items')
+  .update({ 'amount': y })
+  .eq('id', z)
+
+}
+
+async function UPDATEVALUES3(y,z){
+  const { error } = await supabase
+  .from('items')
+  .update({ 'reserveAM': y })
+  .eq('id', z)
+
+}
 
 
+//name of the row needs to be hardcoded| y is the row value you want to change | z is the value of the ID
       
 async function TOGETHER(){
   const ML_values = [6,10,13,19,11,12,14,5]
@@ -42,34 +66,40 @@ async function TOGETHER(){
  
   if(ML_values.includes(SIGMA_OHIO)){
     const { data, error } = await supabase.from(tableName).select('*');
-
-if (error) {
-  console.error('Error fetching data:', error);
-  return;
-}
   let returnvaluetosupabase= ref(0)
 console.log('Fetched data:', data);
-data.forEach(row => {if(row.id === SIGMA_OHIO){console.log(row.nonsolid), console.log(test1.value) , console.log(row.nonsolid - test1.value), returnvaluetosupabase = row.nonsolid - test1.value , return returnvaluetosupabase}
+data.forEach(row => {if(row.id === SIGMA_OHIO){returnvaluetosupabase = row.nonsolid}
 });
 
+console.log('test' , returnvaluetosupabase)
 
-  // some error here idk
+const computed  = returnvaluetosupabase - test1.value
 
-
-  
-
- 
- 
-
-  }
-  else{
-
-}
+UPDATEVALUES(computed,SIGMA_OHIO)
 }
 
+else{
+  const { data, error } = await supabase.from(tableName).select('*');
+ let thisvar = ref(0)
+ let reservecurrent = ref(0)
+ console.log('Fetched data:', data);
+ data.forEach(row => {if(row.id === SIGMA_OHIO){thisvar = row.amount}});
+console.log('your thing', thisvar)
+const calcutlate  = thisvar - test1.value
+UPDATEVALUES2(calcutlate,SIGMA_OHIO)
+// fetech current resefve amount and add the user value to that 
+// one of the functions is interfering with the other maybe 
+// its taking current vlaue and adding reserve value and then putting that back into the table
+data.forEach(row => {if(row.id === SIGMA_OHIO){reservecurrent = row.amount}});
+ const TrueValue = reservecurrent + test1.value
+UPDATEVALUES3(TrueValue,SIGMA_OHIO)
 
+
+}
+
+}
      
-//rewriter all code and logic
+//now that the values can be changed you need to do the reserve catogries and add in logic so that if its zero you cant reserve anymore( for this user .alert or that things)
     
 
 
