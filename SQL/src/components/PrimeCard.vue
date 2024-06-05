@@ -34,9 +34,4 @@ const props = defineProps({
   item: Object,
   editing: Boolean
 })
-function REROUTE1(): void {
-  {
-    router.push('/reserve')
-  }
-}
 </script>
