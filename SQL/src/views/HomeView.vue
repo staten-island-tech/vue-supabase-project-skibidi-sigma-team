@@ -1,10 +1,20 @@
 <script setup lang="ts">
 import { RouterLink, RouterView, useRouter, useRoute } from 'vue-router'
+
+import { StealData } from '../stores/USER_DATA'
+
 import PrimeCard from '@/components/PrimeCard.vue'
 import Button from 'primevue/button'
 import Dropdown from 'primevue/dropdown'
 import { ref, onMounted, reactive } from 'vue'
 import { supabase } from '../lib/supabaseClient.js'
+const somethingtest1 = StealData()
+
+function REROUTE(): void {
+  if (somethingtest1.email === '') {
+    router.push('/')
+  }
+}
 const itemsObject = ref([])
 const listOfNames = ref([])
 const selectedItem = ref()

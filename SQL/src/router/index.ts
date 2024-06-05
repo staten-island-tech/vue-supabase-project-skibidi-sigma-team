@@ -3,16 +3,11 @@ import HOME from '../views/HomeView.vue'
 import LOGIN_INTO from '../views/LOGIN_INTO.vue'
 import MakerSpace from '@/views/MakerSpace.vue'
 import ITEMVIEW from '../views/ItemView.vue'
-import CREATE from '../views/CreateView.vue'
-
+import ReservePage from '../views/ReservePage.vue'
+import HomeView from '../views/HomeView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    {
-      path: '/home',
-      name: 'home',
-      component: HOME
-    },
     {
       path: '/item/:name',
       name: 'item',
@@ -40,6 +35,31 @@ const router = createRouter({
       path: '/create',
       name: 'CREATE',
       component: CREATE
+    },
+    {
+      path: '/Cards',
+      name: 'Cards',
+      component: Cards
+    },
+    {
+      path: '/General ',
+      name: 'General',
+      component: MakerSpace
+    },
+    {
+      path: '/Request',
+      name: 'request',
+      component: Request_info
+    },
+    {
+      path: '/home',
+      name: 'HOME',
+      component: HomeView
+    },
+    {
+      path: '/reserve',
+      name: 'Reserve',
+      component: ReservePage
     }
   ]
 })
