@@ -7,7 +7,7 @@ export const StealData = defineStore('user', {
     
   }),
   actions: {
-    STEALTHIS(email) {
+    STEALTHIS(email:string) {
       this.email = email;
     },
     clearUser() {

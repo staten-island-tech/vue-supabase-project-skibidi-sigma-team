@@ -24,7 +24,7 @@ const itemValues = {
   'clay packs': 7,
   'Soldering Irons': 21,
   'Red Paint': 11,
-  scissors: 17,
+  'scissors': 17,
   "Elmer's Glue": 19,
   'White Paint': 13,
   'carboard boxes': 4,
