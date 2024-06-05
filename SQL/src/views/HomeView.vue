@@ -41,6 +41,16 @@ function pushItem(itemParam) {
   <main>
     <div>
       <h1 class="text-6xl text-center">Maker Spalker Reberb</h1>
+      <div class="reserveButton p-1 fixed bottom-5 right-5 z-auto">
+        <Button
+          icon="pi pi-bell"
+          severity="warning"
+          class="w-[100px] h-[100px] z-auto"
+          aria-label="Notification"
+          label="Reserve"
+          @click="router.push('/reserve')"
+        />
+      </div>
       <Dropdown
         v-model="selectedItem"
         :options="listOfNames"
@@ -49,6 +59,15 @@ function pushItem(itemParam) {
         class="w-5rem"
       />
       <Button label="search" @click="pushItem(selectedItem)" />
+      <Button
+        class="z-auto left-0 align-right flex float-right"
+        icon="pi pi-user"
+        severity="info"
+        rounded
+        aria-label="User"
+        label="Sign out"
+        @click="somethingtest1.clearUser(), REROUTE()"
+      />
     </div>
     <div class="cardContainer flex flex-row justify-center flex-wrap">
       <PrimeCard

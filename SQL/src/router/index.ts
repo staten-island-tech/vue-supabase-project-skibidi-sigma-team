@@ -32,26 +32,6 @@ const router = createRouter({
       component: HOME
     },
     {
-      path: '/create',
-      name: 'CREATE',
-      component: CREATE
-    },
-    {
-      path: '/Cards',
-      name: 'Cards',
-      component: Cards
-    },
-    {
-      path: '/General ',
-      name: 'General',
-      component: MakerSpace
-    },
-    {
-      path: '/Request',
-      name: 'request',
-      component: Request_info
-    },
-    {
       path: '/home',
       name: 'HOME',
       component: HomeView

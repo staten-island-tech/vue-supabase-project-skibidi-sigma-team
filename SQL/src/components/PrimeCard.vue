@@ -25,11 +25,18 @@
 <!--   <ul>
       <li v-for="i in items" :key="i.id">{{ i.name }}</li>
     </ul> -->
-<script setup>
+<script setup lang="ts">
+import { useRoute, useRouter } from 'vue-router'
+const router = useRouter()
 import Card from 'primevue/card'
 import Button from 'primevue/button'
 const props = defineProps({
   item: Object,
   editing: Boolean
 })
+function REROUTE1(): void {
+  {
+    router.push('/reserve')
+  }
+}
 </script>
