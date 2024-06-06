@@ -79,5 +79,8 @@ function pushItem(itemParam) {
       />
       <Button label="create item" @click="router.push('/create')" />
     </div>
+
+    <div><p>EMAIL?: {{somethingtest1.email}}</p>
+    </div>
   </main>
 </template>

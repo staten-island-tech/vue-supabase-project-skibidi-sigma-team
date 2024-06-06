@@ -5,6 +5,9 @@ import { useRoute, useRouter } from 'vue-router'
 import Button from 'primevue/button'
 import Password from 'primevue/password'
 
+import { StealData } from '../stores/USER_DATA';
+const somethingtest1 = StealData();
+
 const router = useRouter()
 const email = ref('')
 const password = ref('')
@@ -23,6 +26,9 @@ async function signInUser() {
       throw error
     } else {
       console.log('User signed up successfully!')
+      somethingtest1.STEALTHIS(email.value) // need to grab user info before form clears
+      // richard stop deleteing my code without knowing what it dooes, i had to spend 10 mins lookk for this code in my old git commints, not fun
+      errorMessage.value = ''
       errorMessage.value = ''
       email.value = ''
       password.value = ''
