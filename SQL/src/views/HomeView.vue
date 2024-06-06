@@ -26,6 +26,9 @@ async function getItems() {
 }
 onMounted(() => {
   getItems()
+  if (somethingtest1.email === '') {
+    router.push('/')
+  }
 })
 function pushItem(itemParam) {
   console.log(itemParam)
@@ -39,18 +42,8 @@ function pushItem(itemParam) {
 
 <template>
   <main>
-    <div>
+    <div class="heading top-0 w-[100%] z-9 bg-white">
       <h1 class="text-6xl text-center">Maker Spalker Reberb</h1>
-      <div class="reserveButton p-1 fixed bottom-5 right-5 z-auto">
-        <Button
-          icon="pi pi-bell"
-          severity="warning"
-          class="w-[100px] h-[100px] z-auto"
-          aria-label="Notification"
-          label="Reserve"
-          @click="router.push('/Schedule')"
-        />
-      </div>
       <Dropdown
         v-model="selectedItem"
         :options="listOfNames"
@@ -68,6 +61,25 @@ function pushItem(itemParam) {
         label="Sign out"
         @click="somethingtest1.clearUser(), REROUTE()"
       />
+      <p class="float-right">EMAIL?: {{ somethingtest1.email }}</p>
+    </div>
+    <div class="reserveButton p-1 fixed flex bottom-5 right-5 z-auto flex-col">
+      <Button
+        icon="pi pi-bell"
+        severity="help"
+        class="w-[100px] h-[100px] z-auto m-1"
+        aria-label="Schedule"
+        label="Schedule"
+        @click="router.push('/Schedule')"
+      />
+      <Button
+        icon="pi pi-bookmark"
+        severity="warning"
+        class="w-[100px] h-[100px] z-auto m-1"
+        aria-label="Reserve"
+        label="Reserve"
+        @click="router.push('/reserve')"
+      />
     </div>
     <div class="cardContainer flex flex-row justify-center flex-wrap">
       <PrimeCard
@@ -77,10 +89,7 @@ function pushItem(itemParam) {
         :item="item"
         :editing="false"
       />
-      <Button label="create item" @click="router.push('/create')" />
-    </div>
-
-    <div><p>EMAIL?: {{somethingtest1.email}}</p>
+      <!--       <Button label="create item" @click="router.push('/create')" /> -->
     </div>
   </main>
 </template>

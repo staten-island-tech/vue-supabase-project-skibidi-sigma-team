@@ -24,7 +24,7 @@ const itemValues = {
   'clay packs': 7,
   'Soldering Irons': 21,
   'Red Paint': 11,
-  'scissors': 17,
+  scissors: 17,
   "Elmer's Glue": 19,
   'White Paint': 13,
   'carboard boxes': 4,
@@ -44,7 +44,7 @@ async function UPDATEVALUES3(y, z) {
   const { error } = await supabase.from('items').update({ reserveAM: y }).eq('id', z)
 }
 
-function RESERVEREROUTE(){
+function RESERVEREROUTE() {
   router.push('/home')
 }
 //name of the row needs to be hardcoded| y is the row value you want to change | z is the value of the ID
@@ -73,10 +73,9 @@ async function TOGETHER() {
       })
       const othertruevalue = poopthang + test1.value
       UPDATEVALUES3(othertruevalue, SIGMA_OHIO)
-      alert('You have successfully reserved '+ test1.value + ' Units of ' + ttest2.value)
+      alert('You have successfully reserved ' + test1.value + ' Units of ' + ttest2.value)
       RESERVEREROUTE()
     }
-
   } else {
     const { data, error } = await supabase.from(tableName).select('*')
     let thisvar = ref(0)
@@ -98,36 +97,40 @@ async function TOGETHER() {
       })
       const TrueValue = reservecurrent + test1.value
       UPDATEVALUES3(TrueValue, SIGMA_OHIO)
-      alert('You have successfully reserved '+ test1.value  +" " + ttest2.value)
+      alert('You have successfully reserved ' + test1.value + ' ' + ttest2.value)
       RESERVEREROUTE()
-
     }
   }
 }
 </script>
 
 <template>
-  <form class="testthisthat" @submit.prevent="TOGETHER">
-    <div class="somethingtest">
-      <h1>RESERVE?</h1>
-
-      <div>
-        <input
-          class="inputfield"
-          required
-          type="number"
-          placeholder="amounut to reserve"
-          v-model="test1"
-        /><br />
-        <label for="itemSelect">Select an item:</label>
-        <select id="itemSelect" v-model="ttest2" required>
-          <option disabled value="">Please select one</option>
-          <option v-for="(value, item) in itemValues" :key="item" :value="item">{{ item }}</option>
-        </select>
+  <div
+    class="form-shell justify-center align-center absolute top-[30%] left-[40%] drop-shadow shadow p-3 rounded border-2"
+  >
+    <h1>Reserve an item?</h1>
+    <form class="testthisthat justify-center" @submit.prevent="TOGETHER">
+      <div class="somethingtest">
+        <div>
+          <input
+            class="inputfield"
+            required
+            type="number"
+            placeholder="Amount to reserve.."
+            v-model="test1"
+          /><br />
+          <label for="itemSelect">Select an item: </label>
+          <select id="itemSelect" v-model="ttest2" required>
+            <option disabled value="">Please select one</option>
+            <option v-for="(value, item) in itemValues" :key="item" :value="item">
+              {{ item }}
+            </option>
+          </select>
+        </div>
+        <div>
+          <input type="submit" class="button block" />
+        </div>
       </div>
-      <div>
-        <input type="submit" class="button block" />
-      </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </template>

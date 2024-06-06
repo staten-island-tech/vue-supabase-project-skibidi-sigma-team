@@ -10,13 +10,13 @@
     </template>
     <template #content>
       <p class="m-0" v-if="typeof item.amount === 'number'">
-        {{ item.amount }}
+        {{ item.amount }} ft/ml/amount available
       </p>
     </template>
     <template #footer>
-      <div v-if="!editing" class="flex gap-3 mt-1">
+      <div v-if="!editing" class="flex top-[50%] left-[50%] z-0">
         <router-link :to="{ name: 'item', params: { name: item.name } }">
-          <Button label="View" class="w-full" />
+          <Button label="View" class="w-full z-0 top-[50%] left-[50%]" />
         </router-link>
       </div>
     </template>

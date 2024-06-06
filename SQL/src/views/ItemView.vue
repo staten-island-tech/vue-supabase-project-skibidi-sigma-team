@@ -3,7 +3,9 @@ import PrimeCard from '@/components/PrimeCard.vue'
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { supabase } from '../lib/supabaseClient.js'
+import { StealData } from '../stores/USER_DATA'
 import Toolbar from 'primevue/toolbar'
+const somethingtest1 = StealData()
 const route = useRoute()
 console.log(route.params.name)
 const items = ref([])
@@ -15,6 +17,9 @@ async function getItems() {
 // display items here
 onMounted(() => {
   getItems()
+  if (somethingtest1.email === '') {
+    router.push('/')
+  }
 })
 console.log(items)
 </script>
