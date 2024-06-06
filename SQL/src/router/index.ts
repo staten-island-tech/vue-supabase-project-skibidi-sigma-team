@@ -5,6 +5,7 @@ import MakerSpace from '@/views/MakerSpace.vue'
 import ITEMVIEW from '../views/ItemView.vue'
 import ReservePage from '../views/ReservePage.vue'
 import HomeView from '../views/HomeView.vue'
+import TimePage from '@/views/TimePage.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -40,6 +41,11 @@ const router = createRouter({
       path: '/reserve',
       name: 'Reserve',
       component: ReservePage
+    },
+    {
+      path: '/Schedule',
+      name: 'Schedule',
+      component: TimePage
     }
   ]
 })

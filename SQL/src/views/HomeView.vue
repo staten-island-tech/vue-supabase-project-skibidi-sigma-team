@@ -48,7 +48,7 @@ function pushItem(itemParam) {
           class="w-[100px] h-[100px] z-auto"
           aria-label="Notification"
           label="Reserve"
-          @click="router.push('/reserve')"
+          @click="router.push('/Schedule')"
         />
       </div>
       <Dropdown
