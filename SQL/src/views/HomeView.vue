@@ -61,7 +61,7 @@ function pushItem(itemParam) {
         label="Sign out"
         @click="somethingtest1.clearUser(), REROUTE()"
       />
-      <p class="float-right">EMAIL?: {{ somethingtest1.email }}</p>
+      <p class="float-right">Email: {{ somethingtest1.email }}</p>
     </div>
     <div class="reserveButton p-1 fixed flex bottom-5 right-5 z-auto flex-col">
       <Button
