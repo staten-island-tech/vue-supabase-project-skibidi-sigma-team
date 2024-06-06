@@ -1,5 +1,7 @@
 
-import { defineStore } from 'pinia';
+import {  createPinia, defineStore } from 'pinia';
+
+
 
 export const StealData = defineStore('user', {
   state: () => ({

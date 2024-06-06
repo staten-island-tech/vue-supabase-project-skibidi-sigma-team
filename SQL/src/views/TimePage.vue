@@ -5,12 +5,14 @@ import { supabase } from '../lib/supabaseClient'
 import { useRoute, useRouter } from 'vue-router'
 import { StealData } from '../stores/USER_DATA'
 const somethingtest1 = StealData()
+const router = useRouter()
 
 function RESERVEREROUTE(){
   router.push('/reserve')}
 
 async function check(){
     const { data, error } = await supabase.from('ReserveTime').select('*')
+    console.log(somethingtest1.email)
     data.forEach((row) => {
         if(row.EMAIL == somethingtest1.email){RESERVEREROUTE()}
         else{null} } )

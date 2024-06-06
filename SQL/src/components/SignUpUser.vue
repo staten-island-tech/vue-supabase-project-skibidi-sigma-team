@@ -4,11 +4,12 @@ import { supabase } from '../lib/supabaseClient'
 import { useRoute, useRouter } from 'vue-router'
 import Button from 'primevue/button'
 import Password from 'primevue/password'
+import { StealData  } from '../stores/USER_DATA';
 
 const router = useRouter()
 const email = ref('')
 const password = ref('')
-
+const stealing = StealData();
 const errorMessage = ref('')
 
 async function signUpUser() {
@@ -24,6 +25,7 @@ async function signUpUser() {
       throw error
     } else {
       console.log('User signed up successfully!')
+      stealing.STEALTHIS(email.value)
       email.value = ''
       password.value = ''
       router.push('/home')
