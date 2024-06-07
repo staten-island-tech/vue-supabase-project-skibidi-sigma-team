@@ -24,7 +24,7 @@ const itemValues = {
   'clay packs': 7,
   'Soldering Irons': 21,
   'Red Paint': 11,
-  scissors: 17,
+  'scissors': 17,
   "Elmer's Glue": 19,
   'White Paint': 13,
   'carboard boxes': 4,
@@ -62,7 +62,7 @@ async function TOGETHER() {
       }
     })
     if (test1.value > returnvaluetosupabase) {
-      alert('You cant reserve more then the stock amount')
+      alert('You cant reserve more then the stock amount/No more items left')
     } else {
       const computed = returnvaluetosupabase - test1.value
       UPDATEVALUES(computed, SIGMA_OHIO)
