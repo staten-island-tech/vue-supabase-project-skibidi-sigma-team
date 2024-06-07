@@ -7,7 +7,8 @@ import PrimeCard from '@/components/PrimeCard.vue'
 import Button from 'primevue/button'
 import Dropdown from 'primevue/dropdown'
 import { ref, onMounted, reactive } from 'vue'
-import { supabase } from '../lib/supabaseClient.js'
+// @ts-ignore
+import { supabase } from '../lib/supabaseClient.js' 
 const somethingtest1 = StealData()
 
 function REROUTE(): void {
@@ -30,7 +31,7 @@ onMounted(() => {
     router.push('/')
   }
 })
-function pushItem(itemParam) {
+function pushItem(itemParam:any) {
   console.log(itemParam)
   listOfNames.value.forEach((x) => {
     if (x == itemParam) {

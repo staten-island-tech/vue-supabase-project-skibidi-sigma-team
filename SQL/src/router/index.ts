@@ -2,9 +2,12 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HOME from '../views/HomeView.vue'
 import LOGIN_INTO from '../views/LOGIN_INTO.vue'
 import MakerSpace from '@/views/MakerSpace.vue'
+// @ts-ignore
 import ITEMVIEW from '../views/ItemView.vue'
+// @ts-ignore
 import ReservePage from '../views/ReservePage.vue'
 import HomeView from '../views/HomeView.vue'
+// @ts-ignore
 import TimePage from '@/views/TimePage.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

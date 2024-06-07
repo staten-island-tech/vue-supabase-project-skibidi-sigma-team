@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+// @ts-ignore
 import SignUp from '../components/SignUpUser.vue'
+// @ts-ignore 
 import SignIn from '../components/SignInUser.vue'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
