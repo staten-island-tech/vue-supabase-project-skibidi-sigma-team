@@ -84,9 +84,10 @@ function pushItem(itemParam:any) {
     </div>
     <div class="cardContainer flex flex-row justify-center flex-wrap">
       <PrimeCard
+      
         class="items-center flex flex-col text-center justify-center m-[2rem] top-[-10px] p-[1.5rem] w-[20%] height-[150%]"
         v-for="item in itemsObject"
-        :key="item.id"
+        :key="item"
         :item="item"
         :editing="false"
       />
